@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class PDFconfig {
-    public String inputPath;
+    public String inputPath = "test";
     public String outputPath;
     public String fontName = "Arial";
     public int fontSize = 12;

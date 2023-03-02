@@ -2,25 +2,25 @@ import java.awt.*;
 
 public class PDFConversionConfiguration {
 
-    public static PDFConversionConfiguration PDFconfig(String... args) {
-        PDFConversionConfiguration config = new PDFConversionConfiguration();
+    public static PDFconfig PDFconfig(String... args) {
+        PDFconfig config = new PDFconfig();
         for (int i = 0; i < args.length; i++) {
             String arg = args[i];
             switch (arg) {
                 case "-i":
-                    config.inputPath = args[++i] ;
+                    config.inputPath = args[++i];
                     break;
                 case "-o":
-                    config.setOutputPath(args[++i]);
+                    config.outputPath = args[++i];
                     break;
                 case "-f":
-                    config.setFontName(args[++i]);
+                    config.fontName = args[++i];
                     break;
                 case "-s":
-                    config.setFontSize(Integer.parseInt(args[++i]));
+                    config.fontSize = Integer.parseInt(args[++i]);
                     break;
                 case "-c":
-                    config.setTextColor(Color.decode(args[++i]));
+                    config.textColor = Color.decode(args[++i]);
                     break;
                 default:
                     System.err.println("Unknown option: " + arg);
@@ -28,7 +28,7 @@ public class PDFConversionConfiguration {
             }
         }
         // Check required options
-        if (config.getInputPath() == null || config.getOutputPath() == null) {
+        if (config.inputPath == null || config.outputPath == null) {
             System.err.println("Missing required options: -i and -o");
             System.exit(1);
         }
